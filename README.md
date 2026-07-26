@@ -1,5 +1,5 @@
 # Task-1
-The required solution is to implement:
+
 
 def canonicalize(source: str) -> str:
 
