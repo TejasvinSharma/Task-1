@@ -1,0 +1,80 @@
+#!/usr/bin/env python3
+"""
+mon_simple.py -- Starter for the MON (Mission Object Notation) challenge.
+
+Implement `canonicalize` below: parse a mission object from MON source
+text and return its canonical form as a string. Raise MissionSyntaxError
+(with a clear message) on any malformed input.
+
+Full specification, grammar, examples, and error-message contract are in
+README.md.
+
+You may structure the implementation however you like -- tokenizer,
+parser, single pass, whatever fits. There is no prescribed architecture.
+The only hard constraints:
+
+  - no parser generators or parsing libraries (see README, "Constraints")
+  - the implementation must be written by hand
+  - `canonicalize(source: str) -> str` is the interface graders call;
+    keep its signature and behavior stable
+
+Run it with:
+    python3 mon_simple.py input1.mon
+"""
+
+import sys
+
+
+class MissionSyntaxError(Exception):
+    """Raise with a clear message for any malformed MON input."""
+
+
+def canonicalize(source):
+    """
+    Parse `source` (MON text describing one mission object) and return its
+    canonical form as a string. See README.md, "Canonical Output".
+
+    Raise MissionSyntaxError on invalid input.
+    """
+    # TODO: implement tokenizing, parsing, validation, and canonical
+    # formatting here, in whatever structure you prefer.
+    raise NotImplementedError("canonicalize is not implemented yet")
+
+
+def main():
+    if len(sys.argv) != 2:
+        print("Usage: python3 mon_simple.py <file.mon>", file=sys.stderr)
+        sys.exit(1)
+
+    try:
+        with open(sys.argv[1], encoding="utf-8") as f:
+            source = f.read()
+    except OSError as exc:
+        print(f"Error: cannot read file: {exc}", file=sys.stderr)
+        sys.exit(1)
+
+    try:
+        print(canonicalize(source))
+    except MissionSyntaxError as exc:
+        print(f"Error: {exc}")
+        sys.exit(1)
+
+    pairs = {"attribute" : "value"}
+    valid = true;
+    for line in source.split(";"):
+        parts = line.split(" = ")
+
+        if parts[0].isUpperCase():
+            valid = false
+            sys.exit()
+        if parts[0].__contains__(""):
+            valid = false
+            sys.exit()
+        
+
+        pairs[parts[0], parts[1]]
+
+
+
+if __name__ == "__main__":
+    main()
